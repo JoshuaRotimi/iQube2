@@ -1,0 +1,17 @@
+.container {
+    padding: 10px;
+}
+
+.background {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.item {
+    display: flex;
+}
+
+.item > p {
+    text-align: center;
+    padding: 0 10px;
+}
