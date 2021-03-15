@@ -7,6 +7,7 @@ import * as actions from '../store/actions/appActions';
 const CovidStatus = ({ fetchResult, covidDetails, covidDetailsStates, loading }) => {
   const [details, setDetails] = useState();
 
+
   const fetchCovidDetails = async () => {
     await fetchResult();
   };
@@ -20,8 +21,10 @@ const CovidStatus = ({ fetchResult, covidDetails, covidDetailsStates, loading })
   useEffect(() => {
     if (covidDetailsStates !== undefined || covidDetailsStates !== []) {
       setDetails(covidDetailsStates);
+
     }
     console.log(covidDetails);
+
   }, [covidDetails]);
 
   const renderDetails = () => {
@@ -32,6 +35,13 @@ const CovidStatus = ({ fetchResult, covidDetails, covidDetailsStates, loading })
     return (
       <div className={'background'}>
         <h1>COVID STATUS IN NIGERIA 2021</h1>
+        <h2>Total figures Recorded so far</h2>
+        <p>Total Samples tested: {covidDetails.totalSamplesTested}</p>
+        <p>Total Active Cases: {covidDetails.totalActiveCases}</p>
+        <p>Total Confirmed Cases: {covidDetails.totalConfirmedCases}</p>
+        <p>Discharged: {covidDetails.discharged}</p>
+        <p>Deaths: {covidDetails.death}</p>
+
         {details &&
           details.map((item) => (
             <div className={'container'} key={item._id}>
